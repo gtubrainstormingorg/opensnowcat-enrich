@@ -80,7 +80,7 @@ object Containers {
     val streams = IntegrationTestConfig.getStreams(uuid)
 
     val container = GenericContainer(
-      dockerImage = s"snowplow/opensnowcat-enrich-eventbridge:${BuildInfo.version}-distroless",
+      dockerImage = s"howdygo/opensnowcat-enrich-eventbridge:${BuildInfo.version}-distroless",
       env = Map(
         "AWS_REGION" -> IntegrationTestConfig.region,
         "AWS_ACCESS_KEY_ID" -> "foo",

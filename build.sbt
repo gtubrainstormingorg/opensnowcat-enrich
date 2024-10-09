@@ -70,6 +70,7 @@ lazy val pubsub = project
   .settings(libraryDependencies ++= pubsubDependencies)
   .settings(excludeDependencies ++= exclusions)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2 % "test->test;compile->compile")
   .dependsOn(gcpUtils % "compile->compile")
 
@@ -81,6 +82,7 @@ lazy val pubsubDistroless = project
   .settings(libraryDependencies ++= pubsubDependencies)
   .settings(excludeDependencies ++= exclusions)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2 % "test->test;compile->compile")
   .dependsOn(gcpUtils % "compile->compile")
 
@@ -91,6 +93,7 @@ lazy val kinesis = project
   .settings(libraryDependencies ++= kinesisDependencies)
   .settings(excludeDependencies ++= exclusions)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2 % "test->test;compile->compile")
   .dependsOn(awsUtils % "compile->compile")
 
@@ -108,6 +111,7 @@ lazy val kinesisDistroless = project
   )
   .settings(excludeDependencies ++= exclusions)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2 % "compile->compile;it->it")
   .dependsOn(awsUtils % "compile->compile")
   .settings(Defaults.itSettings)
@@ -129,6 +133,7 @@ lazy val kafka = project
   .settings(Defaults.itSettings)
   .configs(IntegrationTest)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2 % "compile->compile;test->test;it->it")
   .dependsOn(awsUtils % "compile->compile")
   .dependsOn(gcpUtils % "compile->compile")
@@ -142,6 +147,7 @@ lazy val kafkaDistroless = project
   .settings(libraryDependencies ++= kafkaDependencies)
   .settings(excludeDependencies ++= exclusions)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2)
   .dependsOn(awsUtils % "compile->compile")
   .dependsOn(gcpUtils % "compile->compile")
@@ -154,6 +160,7 @@ lazy val nsq = project
   .settings(libraryDependencies ++= nsqDependencies)
   .settings(excludeDependencies ++= exclusions)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2 % "compile->compile;test->test")
   .dependsOn(awsUtils % "compile->compile")
   .dependsOn(gcpUtils % "compile->compile")
@@ -164,6 +171,7 @@ lazy val nsqDistroless = project
   .enablePlugins(BuildInfoPlugin, JavaAppPackaging, SnowplowDistrolessDockerPlugin)
   .settings(sourceDirectory := (nsq / sourceDirectory).value)
   .settings(nsqDistrolessBuildSettings)
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .settings(
     libraryDependencies ++= nsqDependencies ++ Seq(
       // integration tests dependencies
@@ -189,6 +197,7 @@ lazy val eventbridge = project
   .settings(libraryDependencies ++= eventbridgeDependencies)
   .settings(excludeDependencies ++= exclusions)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2 % "test->test;compile->compile")
   .dependsOn(awsUtils % "compile->compile")
 
@@ -206,6 +215,7 @@ lazy val eventbridgeDistroless = project
   )
   .settings(excludeDependencies ++= exclusions)
   .settings(addCompilerPlugin(betterMonadicFor))
+  .settings(Docker / dockerRepository := Some("howdygo"))
   .dependsOn(commonFs2 % "compile->compile;it->it")
   .dependsOn(awsUtils % "compile->compile")
   .settings(Defaults.itSettings)
